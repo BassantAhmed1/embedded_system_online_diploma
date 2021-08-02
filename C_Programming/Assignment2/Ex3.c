@@ -1,5 +1,5 @@
 /*
- * Ex1.c
+ * Ex3.c
  *
  *  Created on: Aug 2, 2021
  *      Author: BassantAhmed
