@@ -1,19 +1,22 @@
 /*
- * Ex2.c
+ * Ex1.c
  *
- *  Created on: Jul 31, 2021
+ *  Created on: Aug 2, 2021
  *      Author: BassantAhmed
  */
+
 #include <stdio.h>
 
 int main()
 {
-	int x;
-	printf("Enter an integer :");
-	fflush(stdout);
-	scanf("%d",&x);
-	printf("You entered:%d \n", x);
+	char alpha;
+	printf("Enter an alphabet:");
+	fflush(stdin);	fflush(stdout);
+	scanf("%c",&alpha);
+	if (alpha=='a'||alpha=='A'||alpha=='e'||alpha=='E'||alpha=='i'||alpha=='I'||alpha=='o'||alpha=='O'||alpha=='u'||alpha=='u')
+		printf("%c is a vowel.\r\n",alpha);
+	else
+		printf("%c is a consonant",alpha);
 
 	return 0;
 }
-
