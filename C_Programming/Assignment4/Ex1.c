@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 
-//void prime_num(int num1, int num2);
+void prime_num(int num1, int num2);
 
 int main ()
 {
