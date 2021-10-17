@@ -1,8 +1,8 @@
 /*
  * LIFO.c
  *
- *  Created on: ??þ/??þ/????
- *      Author: Eng.Ahmed Youssef
+ *  Created on: 17/10/2021
+ *      Author: BassantAhmedf
  */
 #include "stdio.h"
 #include "string.h"
