@@ -12,7 +12,7 @@
 Buffer_status LIFO_add_item (LIFO_buf_t *LIFO_Buf, unsigned int item){
 	if(!LIFO_Buf->base || !LIFO_Buf->head)
 		return LIFO_NULL;
-	if(LIFO_Buf->count == LIFO_Buf->length)
+	if(LIFO_is_full(&LIFO_Buf))
 		return LIFO_full;
 	*LIFO_Buf->head=item;
 	LIFO_Buf->head++;
@@ -25,7 +25,7 @@ Buffer_status LIFO_add_item (LIFO_buf_t *LIFO_Buf, unsigned int item){
 Buffer_status LIFO_get_item (LIFO_buf_t *LIFO_Buf, unsigned int *item){
 	if(!LIFO_Buf->base || !LIFO_Buf->head)
 		return LIFO_NULL;
-	if(!LIFO_Buf->count)
+	if(LIFO_is_empty(&LIFO_Buf))
 		return LIFO_empty;
 
 	LIFO_Buf->head--;
