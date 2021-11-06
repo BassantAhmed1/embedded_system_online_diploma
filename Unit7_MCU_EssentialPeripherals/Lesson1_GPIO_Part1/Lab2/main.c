@@ -30,12 +30,9 @@ int main ()
 void GPIO_init(void)
 {
 	DDRD =0x00;
-	DDRB =0x00;
 
-	//Pins PD5, PD6, PD7 output
-	DDRD |= (1<<5) | (1<<6) | (1<<7);
-	//Pin PB7 output
-	DDRB |= (1<<7);
+	//Pins PD4, PD5, PD6, PD7 output
+	DDRD |= (1<<4) |(1<<5) | (1<<6) | (1<<7);
 }
 
 void threeLedsToggle(void)
@@ -53,7 +50,7 @@ void threeLedsToggle(void)
 		_delay_ms(3000);
 		PORTD &= ~(1<<7);
 		//buzzer on then off after 3000ms
-		PORTB |= (1<<7);
+		PORTD |= (1<<4);
 		_delay_ms(3000);
-		PORTB &= ~(1<<7);
+		PORTD &= ~(1<<4);
 }
