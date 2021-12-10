@@ -106,7 +106,61 @@ void MCAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t PinNumber);
 
 void MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint8_t PinNumber);
 
-uint8_t Get_CRLH_Postion (uint16_t PinNumber);
+uint8_t Get_CRLH_Postion (uint16_t PinNumber)
+{
+	switch (PinNumber)
+	{
+	case GPIO_PIN_0:
+		return 0;
+		break;
+	case GPIO_PIN_1:
+		return 4;
+		break;
+	case GPIO_PIN_2:
+		return 8;
+		break;
+	case GPIO_PIN_3:
+		return 12;
+		break;
+	case GPIO_PIN_4:
+		return 16;
+		break;
+	case GPIO_PIN_5:
+		return 20;
+		break;
+	case GPIO_PIN_6:
+		return 24;
+		break;
+	case GPIO_PIN_7:
+		return 28;
+		break;
+	case GPIO_PIN_8:
+		return 0;
+		break;
+	case GPIO_PIN_9:
+		return 4;
+		break;
+	case GPIO_PIN_10:
+		return 8;
+		break;
+	case GPIO_PIN_11:
+		return 12;
+		break;
+	case GPIO_PIN_12:
+		return 16;
+		break;
+	case GPIO_PIN_13:
+		return 20;
+		break;
+	case GPIO_PIN_14:
+		return 24;
+		break;
+	case GPIO_PIN_15:
+		return 28;
+		break;
+
+	}
+}
 
 
 #endif /* INC_STM32_F103C6_GPIO_DRIVER_H_ */
