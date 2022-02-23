@@ -26,9 +26,9 @@
 #define System_Memory_Base							0x1FFFF000UL
 #define SRAM_Memory_Base							0x20000000UL
 
-#define Peripherals_Base							0x20000000UL
+#define Peripherals_Base							0x40000000UL
 
-#define CortexM3_Internal_Peripherals_Base			0x20000000UL
+#define CortexM3_Internal_Peripherals_Base			0xE0000000UL
 
 
 
