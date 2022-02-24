@@ -1,5 +1,6 @@
 #include "stm32f103x6.h"
 #include "stm32_F103C6_GPIO_Driver.h"
+#include ""
 
 
 void clock_init (void){
@@ -44,7 +45,6 @@ void GPIO_init(void)
 	PinConfig.GPIO_OUTPUT_SPEED = GPIO_SPEED_10M;
 
 	MCAL_GPIO_Init(GPIOB, &PinConfig);
-
 }
 
 void wait (unsigned int time)
@@ -64,14 +64,14 @@ int main(void)
 	{
 		if (((GPIOA->IDR & (1<<1))>>1) == 0)
 		{
-			GPIOB->ODR ^= (1<<1);
+			MCAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1);
 			while (((GPIOA->IDR & (1<<1))>>1) == 0);
 		}
 		if (((GPIOA->IDR & (1<<13))>>13) == 1)
 		{
 			while(((GPIOA->IDR & (1<<13))>>13) == 1)
 			{
-				GPIOB->ODR ^= (1<<13);
+				MCAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
 				wait(1);
 			}
 		}

@@ -104,7 +104,7 @@ uint8_t MCAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t PinNumber);
 uint16_t MCAL_GPIO_ReadPort(GPIO_TypeDef *GPIOx);
 
 //write APIs
-void MCAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint8_t PinNumber, uint8_t Value);
+void MCAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t PinNumber, uint8_t Value);
 void MCAL_GPIO_WritePort(GPIO_TypeDef *GPIOx , uint16_t value);
 
 void MCAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t PinNumber);

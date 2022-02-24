@@ -61,6 +61,7 @@ uint8_t Get_CRLH_Postion (uint16_t PinNumber)
 		break;
 
 	}
+	return 0;
 }
 
 /**================================================================
@@ -96,7 +97,7 @@ void MCAL_GPIO_Init (GPIO_TypeDef *GPIOx,GPIO_PinConfig_t* PinConfig)
 	//if input mode  (MODE[1:0]=00):
 	else
 	{
-		pin_config |= ((PinConfig->GPIO_MODE <<2 ) &0xF0);
+		pin_config |= ((PinConfig->GPIO_MODE <<2 ) &0x0F);
 		if(PinConfig->GPIO_MODE == GPIO_MODE_INPUT_PU)
 			GPIOx->ODR |= PinConfig->GPIO_PinNumber;
 		if(PinConfig->GPIO_MODE == GPIO_MODE_INPUT_PD)
@@ -166,7 +167,7 @@ uint16_t MCAL_GPIO_ReadPort(GPIO_TypeDef *GPIOx)
  * @retval 		-none
  * Note			-none
  */
-void MCAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint8_t PinNumber, uint8_t Value)
+void MCAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t PinNumber, uint8_t Value)
 {
 	if (Value==1)
 		GPIOx->ODR |= (uint32_t)PinNumber;
