@@ -66,7 +66,7 @@ typedef struct {
 #define GPIO_MODE_ANALOG			0x00000000u //Analog mode
 #define GPIO_MODE_INPUT_FLO			0x00000001u //Floating input (reset state)
 #define GPIO_MODE_INPUT_PU			0x00000002u //Input with pull-up
-#define GPIO_MODE_INPUT_PD			0x00000002u //Input with Pull_down
+#define GPIO_MODE_INPUT_PD			0x00000003u //Input with Pull_down
 #define GPIO_MODE_OUTPUT_PP			0x00000004u //General purpose output push-pull
 #define GPIO_MODE_OUTPUT_OD			0x00000005u //General purpose output Open-drain
 #define GPIO_MODE_OUTPUT_AF_PP		0x00000006u //Alternate function output Push-pull
@@ -85,6 +85,11 @@ typedef struct {
 #define GPIO_RETURN_LOCK_ENABLED	1
 #define GPIO_RETURN_LOCK_ERROR		0
 
+//@ref GPIO_PIN_state
+
+#define GPIO_PIN_SET		1
+#define GPIO_PIN_RESET		0
+
 /*
  * ===============================================
  * APIs Supported by "MCAL GPIO DRIVER"
@@ -96,7 +101,7 @@ void MCAL_GPIO_DeInit (GPIO_TypeDef *GPIOx);
 
 //read APIs
 uint8_t MCAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t PinNumber);
-uint32_t MCAL_GPIO_ReadPort(GPIO_TypeDef *GPIOx);
+uint16_t MCAL_GPIO_ReadPort(GPIO_TypeDef *GPIOx);
 
 //write APIs
 void MCAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint8_t PinNumber, uint8_t Value);
@@ -104,63 +109,9 @@ void MCAL_GPIO_WritePort(GPIO_TypeDef *GPIOx , uint16_t value);
 
 void MCAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t PinNumber);
 
-void MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint8_t PinNumber);
+uint8_t MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t PinNumber);
 
-uint8_t Get_CRLH_Postion (uint16_t PinNumber)
-{
-	switch (PinNumber)
-	{
-	case GPIO_PIN_0:
-		return 0;
-		break;
-	case GPIO_PIN_1:
-		return 4;
-		break;
-	case GPIO_PIN_2:
-		return 8;
-		break;
-	case GPIO_PIN_3:
-		return 12;
-		break;
-	case GPIO_PIN_4:
-		return 16;
-		break;
-	case GPIO_PIN_5:
-		return 20;
-		break;
-	case GPIO_PIN_6:
-		return 24;
-		break;
-	case GPIO_PIN_7:
-		return 28;
-		break;
-	case GPIO_PIN_8:
-		return 0;
-		break;
-	case GPIO_PIN_9:
-		return 4;
-		break;
-	case GPIO_PIN_10:
-		return 8;
-		break;
-	case GPIO_PIN_11:
-		return 12;
-		break;
-	case GPIO_PIN_12:
-		return 16;
-		break;
-	case GPIO_PIN_13:
-		return 20;
-		break;
-	case GPIO_PIN_14:
-		return 24;
-		break;
-	case GPIO_PIN_15:
-		return 28;
-		break;
-
-	}
-}
+uint8_t Get_CRLH_Postion (uint16_t PinNumber);
 
 
 #endif /* INC_STM32_F103C6_GPIO_DRIVER_H_ */

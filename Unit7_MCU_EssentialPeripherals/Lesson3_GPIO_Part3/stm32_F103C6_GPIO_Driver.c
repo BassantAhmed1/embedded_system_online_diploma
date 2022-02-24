@@ -7,7 +7,61 @@
 
 #include "stm32_F103C6_GPIO_Driver.h"
 
+uint8_t Get_CRLH_Postion (uint16_t PinNumber)
+{
+	switch (PinNumber)
+	{
+	case GPIO_PIN_0:
+		return 0;
+		break;
+	case GPIO_PIN_1:
+		return 4;
+		break;
+	case GPIO_PIN_2:
+		return 8;
+		break;
+	case GPIO_PIN_3:
+		return 12;
+		break;
+	case GPIO_PIN_4:
+		return 16;
+		break;
+	case GPIO_PIN_5:
+		return 20;
+		break;
+	case GPIO_PIN_6:
+		return 24;
+		break;
+	case GPIO_PIN_7:
+		return 28;
+		break;
+	case GPIO_PIN_8:
+		return 0;
+		break;
+	case GPIO_PIN_9:
+		return 4;
+		break;
+	case GPIO_PIN_10:
+		return 8;
+		break;
+	case GPIO_PIN_11:
+		return 12;
+		break;
+	case GPIO_PIN_12:
+		return 16;
+		break;
+	case GPIO_PIN_13:
+		return 20;
+		break;
+	case GPIO_PIN_14:
+		return 24;
+		break;
+	case GPIO_PIN_15:
+		return 28;
+		break;
 
+	}
+}
 
 /**================================================================
  * @Fn			-MCAL_GPIO_Init
@@ -96,10 +150,10 @@ uint8_t MCAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t PinNumber)
  * @retval 		-the port value
  * Note			-none
  */
-uint32_t MCAL_GPIO_ReadPort(GPIO_TypeDef *GPIOx)
+uint16_t MCAL_GPIO_ReadPort(GPIO_TypeDef *GPIOx)
 {
-	uint32_t PortVal = 0x0000;
-	PortVal= (uint32_t)GPIOx->IDR ;
+	uint16_t PortVal = 0x0000;
+	PortVal= (uint16_t)GPIOx->IDR ;
 	return PortVal;
 }
 
@@ -159,8 +213,9 @@ void MCAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t PinNumber)
  * @retval 		-Ok if locked, Error if not locked (based on @ref GPIO_RETURN_LOCK)
  * Note			-none
  */
-uint8_t MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint8_t PinNumber)
+uint8_t MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t PinNumber)
 {
+
 	//set LCKK[16]
 	volatile uint32_t tmp = 1<<16;
 
@@ -185,6 +240,8 @@ uint8_t MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint8_t PinNumber)
 		return GPIO_RETURN_LOCK_ENABLED;
 	else
 		return GPIO_RETURN_LOCK_ERROR;
+
+
 
 }
 
