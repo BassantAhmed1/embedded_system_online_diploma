@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://autosar.org/schema/r4.0 file:///E:/grad%20project/AUTOSAR-In-Depth-GP/Unit2_AUTOSAR%20Architecture%20And%20Methodology/Session2_Understanding%20ARXML/lab1/AUTOSAR_RXML_SCHEMA/AUTOSAR_00046.xsd">
+
+	<AR-PACKAGES>
+		<AR-PACKAGE>
+			<SHORT-NAME>SR_InterfaceLab</SHORT-NAME>
+			<!-- Learn_In_Depth eng:Bassant Ahmed SWCs Session SR Interace -->
+			<ELEMENTS>
+				<SENDER-RECEIVER-INTERFACE>
+					<SHORT-NAME>Interface1</SHORT-NAME>
+					<DATA-ELEMENTS>
+						<VARIABLE-DATA-PROTOTYPE>
+							<SHORT-NAME>Lidar_ObjectDistance</SHORT-NAME>
+							<TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_PlatformTypes/ImplementationDataTypes/uint32</TYPE-TREF>
+						</VARIABLE-DATA-PROTOTYPE>
+					</DATA-ELEMENTS>
+				</SENDER-RECEIVER-INTERFACE>
+
+				<SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+					<SHORT-NAME>SWC1</SHORT-NAME>
+					<PORTS>
+						<P-PORT-PROTOTYPE>
+							<SHORT-NAME>P_Port1</SHORT-NAME>
+							<PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SR_Interface/Interface1</PROVIDED-INTERFACE-TREF>
+						</P-PORT-PROTOTYPE>
+					</PORTS>
+				</SENSOR-ACTUATOR-SW-COMPONENT-TYPE>
+
+				<APPLICATION-SW-COMPONENT-TYPE>
+					<SHORT-NAME>SWC2</SHORT-NAME>
+					<PORTS>
+						<R-PORT-PROTOTYPE>
+							<SHORT-NAME>R_Port1</SHORT-NAME>
+							<REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/SR_Interface/Interface1</REQUIRED-INTERFACE-TREF>
+						</R-PORT-PROTOTYPE>
+					</PORTS>
+				</APPLICATION-SW-COMPONENT-TYPE>
+			</ELEMENTS>
+
+		</AR-PACKAGE>
+
+	</AR-PACKAGES>
+
+
+
+</AUTOSAR>
