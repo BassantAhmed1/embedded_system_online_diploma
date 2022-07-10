@@ -2,7 +2,7 @@
  * platform_types.h
  *
  *  Created on: Sep 19, 2021
- *      Author: MAK
+ *      Author: BassantAhmed
  */
 
 #ifndef PLATFORM_TYPES_H_
