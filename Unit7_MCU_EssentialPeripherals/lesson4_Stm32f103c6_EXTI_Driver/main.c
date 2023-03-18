@@ -33,7 +33,7 @@ void my_wait (int x)
 void EXTI9_CallBack (void)
 {
 	clearFlag = 1;
-	LCD_WRITE_STRING("Hello taftaf <33 ..");
+	LCD_WRITE_STRING("EXTI9_IRQ is running.. ");
 //	my_wait(500);
 }
 int main(void)
