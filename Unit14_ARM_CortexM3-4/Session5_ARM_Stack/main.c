@@ -51,15 +51,6 @@ unsigned int _E_PSP_TA;
 unsigned int _S_PSP_TB;
 unsigned int _E_PSP_TB;
 
-enum CPU_AccessLevel_e {
-	privileged,
-	unprivileged
-};
-
-enum Stack_e {
-	MSP,
-	PSP
-};
 
 void Switch_CPU_AccessLevel (enum CPU_AccessLevel_e Level);
 void MainOS(void);
